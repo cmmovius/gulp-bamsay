@@ -45,7 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var component = __webpack_require__(1);
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../css/styles.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()))
+	__webpack_require__(2)
 
 	document.body.appendChild(component());
 	// document.body.appendChild(wombat());
@@ -63,6 +63,12 @@
 	  return element;
 	};
 
+
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	
 
 /***/ }
 /******/ ]);
