@@ -3,12 +3,14 @@ var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var gulp = require('gulp');
 var sass = require("gulp-sass");
+var watch = require('gulp-watch');
+var connect = require('gulp-connect');
 
 //define a task with the name of 'default'
 // and a callback to perform when the task is ran
-gulp.task('default', function() {
-  console.log('I am the default task!');
-});
+// gulp.task('default', function() {
+//   console.log('I am the default task!');
+// });
 
 gulp.task('date', function(){
   var today = new Date();
@@ -29,5 +31,18 @@ gulp.task('jshint', function() {
 gulp.task('sass', function () {
  return gulp.src('./css/**/*.scss')
    .pipe(sass().on('error', sass.logError))
-   .pipe(gulp.dest('./css/'));
+   .pipe(gulp.dest('./css/'))
+   .pipe(connect.reload());
 });
+
+gulp.task('watch', function () {
+ gulp.watch('./css/**/*.scss', ['sass']);
+});
+
+gulp.task('connect', function() {
+  connect.server({
+    livereload: true
+  });
+});
+
+gulp.task("default", ['sass', 'connect', 'watch']);

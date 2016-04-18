@@ -4,6 +4,7 @@ body {
 h1 {
   text-align: center;
   color: #CF458B;
+  border: 20px solid gold;
   text-transform: uppercase;
   font-family: 'Helvetica Neue';
   font-weight: 100;
